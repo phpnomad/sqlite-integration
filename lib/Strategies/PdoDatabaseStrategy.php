@@ -42,6 +42,7 @@ class PdoDatabaseStrategy implements DatabaseStrategy
                     '?i' => $value === null ? 'NULL' : (string) (int) $value,
                     '?d' => $value === null ? 'NULL' : (string) (float) $value,
                     '?a' => $this->quoteArray((array) $value),
+                    default => throw new \LogicException("Unhandled placeholder {$match[0]}"),
                 };
             },
             $query
@@ -63,7 +64,7 @@ class PdoDatabaseStrategy implements DatabaseStrategy
             }
 
             $rows = $stmt->fetchAll();
-            return is_array($rows) ? $rows : [];
+            return $rows ?: [];
         } catch (PDOException $e) {
             throw new DatastoreErrorException(
                 "SQLite query failed: {$e->getMessage()}\n--\n{$query}",

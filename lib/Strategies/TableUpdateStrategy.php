@@ -209,7 +209,7 @@ class TableUpdateStrategy implements CoreTableUpdateStrategy
         $attrs = [];
         $isPk = false;
         foreach ($column->getAttributes() as $attr) {
-            if ($attr === null || $attr === '') {
+            if ($attr === '') {
                 continue;
             }
             $upper = strtoupper($attr);

@@ -93,7 +93,7 @@ class TableCreateStrategy implements CoreTableCreateStrategy
         $attrs = [];
         $isPrimary = false;
         foreach ($column->getAttributes() as $attr) {
-            if ($attr === null || $attr === '') {
+            if ($attr === '') {
                 continue;
             }
             $upper = strtoupper($attr);
