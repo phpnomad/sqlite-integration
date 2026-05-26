@@ -1,0 +1,60 @@
+{
+    "name": "phpnomad/sqlite-integration",
+    "description": "PDO+SQLite implementation of phpnomad/db strategies. Pairs with phpnomad/mysql-integration so entity classes and repositories are portable between MySQL (server) and SQLite (desktop/local).",
+    "type": "library",
+    "keywords": [
+        "phpnomad",
+        "sqlite",
+        "pdo",
+        "database",
+        "datastore",
+        "desktop",
+        "nativephp"
+    ],
+    "homepage": "https://github.com/phpnomad/sqlite-integration",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alex Standiford",
+            "email": "alex@standiford.us"
+        }
+    ],
+    "require": {
+        "php": "^8.3",
+        "ext-pdo": "*",
+        "ext-pdo_sqlite": "*",
+        "phpnomad/db": "^2.0",
+        "phpnomad/datastore": "^2.0",
+        "phpnomad/di": "^2.0",
+        "phpnomad/facade": "^1.0",
+        "phpnomad/loader": "^1.0 || ^2.0",
+        "phpnomad/singleton": "^1.0",
+        "phpnomad/utils": "^1.0"
+    },
+    "require-dev": {
+        "phpnomad/di-container": "^1.0",
+        "phpnomad/tests": "^0.1.0 || ^0.3.0 || ^0.4.0",
+        "phpunit/phpunit": "^11"
+    },
+    "autoload": {
+        "psr-4": {
+            "PHPNomad\\SQLite\\Integration\\": "lib/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "PHPNomad\\SQLite\\Integration\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "php-cs-fixer": "php-cs-fixer fix",
+        "test": "phpunit"
+    },
+    "config": {
+        "allow-plugins": {
+            "phpstan/extension-installer": true
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
